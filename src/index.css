@@ -1,0 +1,213 @@
+/* src/index.css */
+:root {
+  --bg-color: #1a1a1a;
+  --card-bg: #2b2b2b;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --accent-color: #646cff;
+  --accent-hover: #535bf2;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Navbar Stilleri */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #242424;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.navbar-logo h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  background: linear-gradient(to right, #646cff, #9f5afd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.navbar-search input {
+  padding: 0.8rem 1.2rem;
+  border-radius: 25px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: white;
+  width: 250px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.navbar-search input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.2);
+}
+
+.navbar-categories button {
+  background: transparent;
+  border: 1px solid #444;
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  margin: 0 0.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.navbar-categories button:hover,
+.navbar-categories button.active {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+/* Ana İçerik */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section-title {
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+/* Grid Layout */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Movie Card */
+.movie-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.movie-poster {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.movie-card:hover .movie-poster img {
+  transform: scale(1.05);
+}
+
+.movie-rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-weight: bold;
+  backdrop-filter: blur(4px);
+}
+
+.movie-info {
+  padding: 1.5rem;
+}
+
+.movie-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-category {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  background: #333;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.movie-desc {
+  font-size: 0.9rem;
+  color: #ccc;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.fav-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.fav-btn:hover {
+  background-color: #444;
+}
+
+.fav-btn.active {
+  background-color: #e91e63;
+}
+
+.loading {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.no-results {
+  text-align: center;
+  grid-column: 1 / -1;
+  padding: 3rem;
+  color: var(--text-secondary);
+}
